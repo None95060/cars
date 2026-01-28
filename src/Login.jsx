@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './styles.css'
 import './Login.css'
 
-function Login() {
+function Login({ onSwitchToSignUp, onLoginSuccess }) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -29,6 +29,7 @@ function Login() {
         email: '',
         password: ''
       })
+      onLoginSuccess()
     } else {
       alert('Please fill in all fields!')
     }
@@ -92,7 +93,7 @@ function Login() {
         </form>
 
         <div className="form-footer">
-          <p>Don't have an account? <a href="#signup" className="signup-link">Sign Up</a></p>
+          <p>Don't have an account? <a href="#signup" className="signup-link" onClick={(e) => { e.preventDefault(); onSwitchToSignUp(); }}>Sign Up</a></p>
         </div>
       </div>
     </div>

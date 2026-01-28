@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './styles.css'
 import './SignUp.css'
 
-function SignUp({ onSwitchToLogin }) {
+function SignUp({ onSwitchToLogin, onSignUpSuccess }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -38,6 +38,7 @@ function SignUp({ onSwitchToLogin }) {
         password: '',
         confirmPassword: ''
       })
+      onSignUpSuccess()
     } else {
       alert('Please fill in all fields!')
     }
