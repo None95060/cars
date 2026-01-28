@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './SignUp.css'
 
-function SignUp() {
+function SignUp({ onSwitchToLogin }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -125,8 +125,8 @@ function SignUp() {
         </form>
 
         <div className="form-footer">
-          <p>Already have an account? <a href="#login" className="login-link">Login</a></p>
-          <a href="#forgot-password" className="forgot-password-link">Forgot Password?</a>
+          <p>Already have an account? <button onClick={onSwitchToLogin} className="login-link">Login</button></p>
+  
         </div>
       </div>
     </div>
