@@ -51,12 +51,11 @@ function SignUp({ onSwitchToLogin }) {
         
         <form onSubmit={handleSignUp}>
           <div className="form-group">
-            <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
               id="fullName"
               name="fullName"
-              placeholder="Enter your full name"
+              placeholder="Full Name"
               value={formData.fullName}
               onChange={handleChange}
               required
@@ -64,12 +63,11 @@ function SignUp({ onSwitchToLogin }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
               required
@@ -77,13 +75,12 @@ function SignUp({ onSwitchToLogin }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
             <div className="password-input-group">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
                 required
@@ -99,13 +96,12 @@ function SignUp({ onSwitchToLogin }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
             <div className="password-input-group">
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 id="confirmPassword"
                 name="confirmPassword"
-                placeholder="Confirm your password"
+                placeholder="Confirm Password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required

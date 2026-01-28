@@ -42,12 +42,11 @@ function Login() {
         
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="email">Email Address</label>
             <input
               type="email"
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email Address"
               value={formData.email}
               onChange={handleChange}
               required
@@ -55,13 +54,12 @@ function Login() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
             <div className="password-input-group">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="Password"
                 value={formData.password}
                 onChange={handleChange}
                 required
