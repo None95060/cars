@@ -51,10 +51,6 @@ function CarCard({ car, onViewDetails, onContactSeller, onToggleFavorite, isFavo
             <span className="detail-label">Transmission:</span>
             <span className="detail-value">{car.transmission}</span>
           </div>
-          <div className="detail-item">
-            <span className="detail-label">Location:</span>
-            <span className="detail-value">{car.location}</span>
-          </div>
         </div>
         <div className="car-card-buttons">
           <button className="car-card-btn" onClick={() => onViewDetails(car)}>
