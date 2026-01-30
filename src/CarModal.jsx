@@ -74,10 +74,6 @@ function CarModal({ car, onClose }) {
             <span className="detail-label">Transmission:</span>
             <span className="detail-value">{car.transmission || 'Manual'}</span>
           </div>
-          <div className="detail-item">
-            <span className="detail-label">Location:</span>
-            <span className="detail-value">{car.location}</span>
-          </div>
         </div>
 
         {/* Engine Specifications */}
