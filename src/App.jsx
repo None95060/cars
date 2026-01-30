@@ -5,7 +5,8 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('signup')
+  // start on the dashboard so layout changes are visible immediately
+  const [currentPage, setCurrentPage] = useState('dashboard')
 
   const goToDashboard = () => setCurrentPage('dashboard')
 
