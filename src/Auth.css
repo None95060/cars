@@ -1,0 +1,127 @@
+/* 🌍 Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+/* 🌈 Auth Page Background */
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.auth-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/flavien-KxgpV1S9Dfc-unsplash.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* 📦 Auth Card */
+.auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 22px;
+  padding: 32px 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* 🧑‍💼 Title */
+.auth-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.auth-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* 📝 Input Group */
+.input-group {
+  margin-bottom: 18px;
+}
+
+/* 🌈 Colorful Inputs */
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #00c853, #ffd600, #ff6f00) border-box;
+  font-size: 15px;
+  color: #000;
+  outline: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* ✨ Focus Effect */
+.input-group input:focus {
+  box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.35);
+  transform: scale(1.02);
+}
+
+/* 🔐 Placeholder */
+.input-group input::placeholder {
+  color: #999;
+}
+
+/* 🔘 Primary Button */
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00c853, #ff6f00);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔗 Links */
+.auth-link {
+  display: block;
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+  color: #00c853;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 26px 22px;
+  }
+}

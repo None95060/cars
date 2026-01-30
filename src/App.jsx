@@ -1,24 +1,44 @@
 import { useState } from 'react'
 import './App.css'
-import SignUp from './SignUp'
-import Login from './Login'
 import Dashboard from './Dashboard'
+import Login from './Login'
+import Signup from './Signup'
+import ForgotPassword from './ForgotPassword'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  // start on the dashboard so layout changes are visible immediately
-  const [currentPage, setCurrentPage] = useState('dashboard')
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorage('isAuthenticated', false)
+  const [currentView, setCurrentView] = useState('login') // 'login' or 'signup'
 
-  const goToDashboard = () => setCurrentPage('dashboard')
+  const handleLogin = (email, password) => {
+    // Simple demo login - in real app, validate credentials
+    setIsAuthenticated(true)
+  }
+
+  const handleSignup = (email, password) => {
+    // Simple demo signup - in real app, create account
+    setIsAuthenticated(true)
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    setCurrentView('login')
+  }
+
+  if (!isAuthenticated) {
+    if (currentView === 'forgot') {
+      return <ForgotPassword onBackToLogin={() => setCurrentView('login')} />
+    }
+    return currentView === 'login' ? (
+      <Login onLogin={handleLogin} onSwitchToSignup={() => setCurrentView('signup')} onForgotPassword={() => setCurrentView('forgot')} />
+    ) : (
+      <Signup onSignup={handleSignup} onSwitchToLogin={() => setCurrentView('login')} />
+    )
+  }
 
   return (
     <div>
-      {currentPage === 'signup' ? (
-        <SignUp onSwitchToLogin={() => setCurrentPage('login')} onSignUpSuccess={goToDashboard} />
-      ) : currentPage === 'login' ? (
-        <Login onSwitchToSignUp={() => setCurrentPage('signup')} onLoginSuccess={goToDashboard} />
-      ) : (
-        <Dashboard onLogout={() => setCurrentPage('login')} />
-      )}
+      <Dashboard onLogout={handleLogout} />
     </div>
   )
 }

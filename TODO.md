@@ -1,13 +1,7 @@
-# TODO: Add Navigation Buttons to Sidebar
+# TODO for Authentication Integration
 
-## Tasks
-- [x] Modify Sidebar.jsx to include navigation buttons (Home, Profile, Favourites, Maps) at the top, above filters
-- [x] Add props to Sidebar.jsx for handling button clicks (onHome, onProfile, onFavourites, onMaps)
-- [x] Update Dashboard.jsx to add currentView state ('home', 'favourites', 'maps', 'profile')
-- [x] Implement conditional rendering in Dashboard.jsx based on currentView
-  - [x] 'home': Show default car grid and stats
-  - [x] 'favourites': Show only favourite cars
-  - [x] 'maps': Show placeholder map view
-  - [x] 'profile': Show placeholder profile view
-- [x] Pass navigation handlers from Dashboard.jsx to Sidebar.jsx
-- [ ] Test navigation buttons to ensure views switch correctly
+- [x] Create Login.jsx component with form for email and password
+- [x] Create Signup.jsx component with form for email, password, and confirm password
+- [x] Create Auth.css with modern dark theme styling, gradients, and animations
+- [x] Modify App.jsx to manage authentication state using useLocalStorage, show auth forms if not logged in, dashboard if logged in
+- [x] Test the integration by running the app

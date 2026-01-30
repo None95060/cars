@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
-import { Car, Wallet, Award, Truck } from 'lucide-react'
+import { Car, Award, Truck } from 'lucide-react'
 import './Dashboard.css'
 import Sidebar from './Sidebar'
 import SearchBar from './SearchBar'
 import CarCard from './CarCard'
 import CarModal from './CarModal'
+import ProfileModal from './ProfileModal'
 
 function Dashboard({ onLogout }) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -20,6 +21,7 @@ function Dashboard({ onLogout }) {
   const [favorites, setFavorites] = useState([])
   const [currentView, setCurrentView] = useState('home')
   const [selectedYard, setSelectedYard] = useState(null)
+  const [showProfileModal, setShowProfileModal] = useState(false)
 
   // Sample car data - Kenyan market focused
   const cars = useMemo(() => [
@@ -222,7 +224,7 @@ function Dashboard({ onLogout }) {
   }
 
   const handleHome = () => setCurrentView('home')
-  const handleProfile = () => setCurrentView('profile')
+  const handleProfile = () => setShowProfileModal(true)
   const handleFavourites = () => setCurrentView('favourites')
   const handleMaps = () => setCurrentView('maps')
 
@@ -263,13 +265,6 @@ function Dashboard({ onLogout }) {
                   <div className="stat-content">
                     <div className="stat-value">{stats.totalCars}</div>
                     <div className="stat-label">Total Cars Listed</div>
-                  </div>
-                </div>
-                <div className="stat-card">
-                  <Wallet className="stat-icon" />
-                  <div className="stat-content">
-                    <div className="stat-value">KES {stats.averagePrice.toLocaleString()}</div>
-                    <div className="stat-label">Average Car Price</div>
                   </div>
                 </div>
                 <div className="stat-card">
@@ -379,6 +374,10 @@ function Dashboard({ onLogout }) {
 
       {selectedCar && (
         <CarModal car={selectedCar} onClose={() => setSelectedCar(null)} />
+      )}
+
+      {showProfileModal && (
+        <ProfileModal onClose={() => setShowProfileModal(false)} />
       )}
     </div>
   )
