@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Auth.css';
 
 function Signup({ onSignup, onSwitchToLogin, signupError }) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -9,7 +10,7 @@ function Signup({ onSignup, onSwitchToLogin, signupError }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       setError('Please fill in all fields');
       return;
     }
@@ -18,7 +19,7 @@ function Signup({ onSignup, onSwitchToLogin, signupError }) {
       return;
     }
     setError('');
-    onSignup(email, password);
+    onSignup(name, email, password);
   };
 
   return (
@@ -27,6 +28,16 @@ function Signup({ onSignup, onSwitchToLogin, signupError }) {
         <h2 className="auth-title">Create Account</h2>
         <p className="auth-subtitle">Sign up to get started</p>
         <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
           <div className="input-group">
             <input
               type="email"

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import React from 'react'
 import './App.css'
 import Dashboard from './Dashboard'
 import Login from './Login'
@@ -11,6 +12,14 @@ function App() {
   const [currentView, setCurrentView] = useState('login') // 'login' or 'signup'
   const [users, setUsers] = useLocalStorage('users', [])
   const [loginError, setLoginError] = useState('')
+
+  // Auto-reset corrupted auth state on load
+  React.useEffect(() => {
+    if (isAuthenticated === true && (!users || users.length === 0)) {
+      setIsAuthenticated(false)
+      setCurrentView('login')
+    }
+  }, [])
 
   const handleLogin = (email, password) => {
     // Check if user exists with matching credentials
@@ -25,7 +34,7 @@ function App() {
     setIsAuthenticated(true)
   }
 
-  const handleSignup = (email, password) => {
+  const handleSignup = (name, email, password) => {
     // Check if email already exists
     const emailExists = users.find(user => user.email === email)
     
@@ -35,7 +44,7 @@ function App() {
     }
     
     // Add new user to users list
-    setUsers([...users, { email, password }])
+    setUsers([...users, { name, email, password }])
     setLoginError('')
     setIsAuthenticated(true)
   }
