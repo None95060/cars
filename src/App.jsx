@@ -7,7 +7,7 @@ import ForgotPassword from './ForgotPassword'
 import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useLocalStorage('isAuthenticated', true)
+  const [isAuthenticated, setIsAuthenticated] = useLocalStorage('isAuthenticated', false)
   const [currentView, setCurrentView] = useState('login') // 'login' or 'signup'
 
   const handleLogin = (email, password) => {

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './Sidebar.css'
 
-function Sidebar({ filters, onFiltersChange, showFilters, onLogout, onHome, onProfile, onFavourites, onMaps }) {
+function Sidebar({ filters, onFiltersChange, showFilters, onLogout, onHome, onProfile, onFavourites, onMaps, onAbout }) {
   const handleFilterChange = (filterType, value) => {
     onFiltersChange({
       ...filters,
@@ -33,6 +33,9 @@ function Sidebar({ filters, onFiltersChange, showFilters, onLogout, onHome, onPr
         </button>
         <button className="nav-btn" onClick={onMaps}>
           🗺️ Maps
+        </button>
+        <button className="nav-btn" onClick={onAbout}>
+          ℹ️ About
         </button>
       </div>
 

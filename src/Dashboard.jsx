@@ -345,6 +345,7 @@ function Dashboard({ onLogout }) {
   const handleProfile = () => setShowProfileModal(true)
   const handleFavourites = () => setCurrentView('favourites')
   const handleMaps = () => setCurrentView('maps')
+  const handleAbout = () => setCurrentView('about')
 
   return (
     <div className="dashboard-wrapper">
@@ -371,6 +372,7 @@ function Dashboard({ onLogout }) {
           onProfile={handleProfile}
           onFavourites={handleFavourites}
           onMaps={handleMaps}
+          onAbout={handleAbout}
         />
 
         <div className="dashboard-content">
@@ -481,6 +483,60 @@ function Dashboard({ onLogout }) {
             <div className="profile-view">
               <h2>Profile</h2>
               <p>User profile information will be displayed here.</p>
+            </div>
+          )}
+
+          {currentView === 'about' && (
+            <div className="about-view">
+              <h2>About KenyaAuto</h2>
+              <div className="about-content">
+                <div className="about-section">
+                  <h3>🏢 Our Mission</h3>
+                  <p>
+                    KenyaAuto is Kenya's premier online car marketplace, connecting buyers and sellers
+                    across the country. We provide a comprehensive platform for discovering, comparing,
+                    and purchasing vehicles with confidence.
+                  </p>
+                </div>
+
+                <div className="about-section">
+                  <h3>🚗 What We Offer</h3>
+                  <ul>
+                    <li>Extensive inventory of cars from trusted dealers and private sellers</li>
+                    <li>Detailed vehicle information including specifications and condition reports</li>
+                    <li>Advanced search and filtering capabilities</li>
+                    <li>Interactive maps showing car yard locations across Kenya</li>
+                    <li>Favorites system for saving preferred vehicles</li>
+                    <li>Comprehensive car details with multiple images and specifications</li>
+                  </ul>
+                </div>
+
+                <div className="about-section">
+                  <h3>📍 Coverage</h3>
+                  <p>
+                    We serve major cities and towns across Kenya including Nairobi, Mombasa, Kisumu,
+                    Nakuru, Eldoret, and many more locations. Our network of car yards ensures you
+                    can find vehicles wherever you are in the country.
+                  </p>
+                </div>
+
+                <div className="about-section">
+                  <h3>🔒 Our Commitment</h3>
+                  <p>
+                    KenyaAuto is committed to providing a safe, transparent, and reliable platform
+                    for all automotive transactions. We work closely with verified dealers and
+                    encourage transparent communication between buyers and sellers.
+                  </p>
+                </div>
+
+                <div className="about-section">
+                  <h3>📞 Contact Us</h3>
+                  <p>
+                    Have questions or need assistance? Our team is here to help you find the perfect vehicle
+                    for your needs. Reach out to us through our platform or visit any of our partner car yards.
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>
