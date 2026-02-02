@@ -19,65 +19,34 @@ function App() {
       setIsAuthenticated(false)
       setCurrentView('login')
     }
-    
-    // On production (Vercel), clear invalid auth state
-    if (isAuthenticated && typeof window !== 'undefined') {
-      fetch('http://localhost:5000/api/auth/verify', { method: 'GET' })
-        .catch(() => {
-          // If backend is not available, we're likely on production without backend
-          // Clear the invalid auth state
-          if (window.location.hostname !== 'localhost') {
-            setIsAuthenticated(false)
-            setCurrentView('login')
-          }
-        })
-    }
   }, [])
 
-  const handleLogin = async (email, password) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      })
-      
-      const data = await response.json()
-      
-      if (!response.ok) {
-        setLoginError(data.error || 'Login failed')
-        return
-      }
-      
-      setLoginError('')
-      setIsAuthenticated(true)
-    } catch (error) {
-      console.error('Login error:', error)
-      setLoginError('Unable to connect to server. Make sure the server is running on port 5000.')
+  const handleLogin = (email, password) => {
+    // Find user in localStorage
+    const foundUser = users.find(user => user.email === email && user.password === password)
+    
+    if (!foundUser) {
+      setLoginError('Invalid email or password')
+      return
     }
+    
+    setLoginError('')
+    setIsAuthenticated(true)
   }
 
-  const handleSignup = async (name, email, password) => {
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password })
-      })
-      
-      const data = await response.json()
-      
-      if (!response.ok) {
-        setLoginError(data.error || 'Signup failed')
-        return
-      }
-      
-      setLoginError('')
-      setIsAuthenticated(true)
-    } catch (error) {
-      console.error('Signup error:', error)
-      setLoginError('Unable to connect to server. Make sure the server is running on port 5000.')
+  const handleSignup = (name, email, password) => {
+    // Check if email already exists
+    if (users.find(user => user.email === email)) {
+      setLoginError('Email already registered')
+      return
     }
+    
+    // Add new user to localStorage
+    const updatedUsers = [...users, { name, email, password }]
+    setUsers(updatedUsers)
+    
+    setLoginError('')
+    setIsAuthenticated(true)
   }
 
   const handleLogout = () => {
