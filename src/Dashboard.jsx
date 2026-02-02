@@ -352,6 +352,15 @@ function Dashboard({ onLogout }) {
     <div className="dashboard-wrapper">
       {/* Top Navbar */}
       <nav className="top-navbar">
+        <button 
+          className="hamburger-menu"
+          onClick={() => setShowFilters(!showFilters)}
+          aria-label="Toggle sidebar"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div className="navbar-logo">
           <h1>KenyaAuto</h1>
         </div>
@@ -368,6 +377,7 @@ function Dashboard({ onLogout }) {
           filters={filters}
           onFiltersChange={setFilters}
           showFilters={showFilters}
+          onToggleSidebar={() => setShowFilters(!showFilters)}
           onLogout={onLogout}
           onHome={handleHome}
           onProfile={handleProfile}

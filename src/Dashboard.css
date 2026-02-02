@@ -401,6 +401,12 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .cars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .dashboard-header {
     flex-direction: column;
@@ -412,6 +418,11 @@
     font-size: 1.8em;
   }
 
+  .dashboard-container {
+    padding: 15px;
+    margin-left: 0;
+  }
+
   .map-layout {
     grid-template-columns: 1fr;
   }
@@ -421,7 +432,7 @@
   }
 
   .stats-row {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablet */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
@@ -443,6 +454,7 @@
   }
 
   .cars-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
@@ -464,8 +476,17 @@
     font-size: 1.5em;
   }
 
+  .dashboard-container {
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  .navbar-logo h1 {
+    font-size: 1.3em;
+  }
+
   .stats-row {
-    grid-template-columns: 1fr; /* 1 card per row on mobile */
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
@@ -485,10 +506,13 @@
   .stat-label {
     font-size: 0.8em;
   }
-}
 
-@media (max-width: 480px) {
-  .dashboard-header h1 {
-    font-size: 1.5em;
+  .cars-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .car-card {
+    padding: 15px;
   }
 }
