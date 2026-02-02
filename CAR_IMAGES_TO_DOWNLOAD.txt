@@ -1,0 +1,135 @@
+INSTRUCTIONS: Download car images and save them to src/assets/cars/
+
+Follow these steps:
+1. Download images from Unsplash, Pexels, or Google Images
+2. Save images as JPG or JPEG (both are the same, use either)
+3. Name them exactly as below (replace spaces with hyphens)
+4. Place in: src/assets/cars/
+
+NOTE: You can save as .jpg OR .jpeg - they're identical formats!
+
+CAR IMAGES TO DOWNLOAD:
+=======================
+
+1. toyota-axio.jpg
+2. nissan-sunny.jpg
+3. toyota-prado.jpg
+4. honda-fit.jpg
+5. mitsubishi-l200.jpg
+6. toyota-hiace.jpg
+7. subaru-forester.jpg
+8. mazda-demio.jpg
+9. nissan-patrol.jpg
+10. toyota-corolla.jpg
+11. honda-cr-v.jpg
+12. isuzu-d-max.jpg
+13. hyundai-tucson.jpg
+14. kia-sportage.jpg
+15. mercedes-benz-c-class.jpg
+16. bmw-x3.jpg
+17. audi-a4.jpg
+18. volkswagen-golf.jpg
+19. ford-ranger.jpg
+20. toyota-land-cruiser.jpg
+21. toyota-allion.jpg
+22. suzuki-swift.jpg
+23. renault-duster.jpg
+24. datsun-go.jpg
+25. mahindra-bolero.jpg
+26. chevrolet-cruze.jpg
+27. hyundai-i10.jpg
+28. toyota-mark-x.jpg
+29. mitsubishi-outlander.jpg
+30. nissan-x-trail.jpg
+31. toyota-vitz.jpg
+32. kia-picanto.jpg
+33. toyota-rav4.jpg
+34. toyota-camry.jpg
+35. toyota-fortuner.jpg
+36. toyota-wish.jpg
+37. toyota-land-cruiser-prado-tx.jpg
+38. toyota-land-cruiser-v8.jpg
+39. toyota-land-cruiser-300.jpg
+40. nissan-qashqai.jpg
+41. nissan-altima.jpg
+42. nissan-murano.jpg
+43. nissan-rogue.jpg
+44. nissan-frontier.jpg
+45. subaru-outback.jpg
+46. subaru-impreza.jpg
+47. subaru-xv.jpg
+48. subaru-legacy.jpg
+49. porsche-911.jpg
+50. porsche-cayenne.jpg
+51. porsche-panamera.jpg
+52. porsche-boxster.jpg
+53. porsche-macan.jpg
+54. porsche-cayman.jpg
+55. bmw-3-series.jpg
+56. bmw-5-series.jpg
+57. bmw-x5.jpg
+58. bmw-x7.jpg
+59. bmw-7-series.jpg
+60. bmw-x1.jpg
+61. bmw-m440i.jpg
+62. bmw-i7.jpg
+63. bmw-m2.jpg
+64. bmw-m3.jpg
+65. bmw-m4.jpg
+66. bmw-m5.jpg
+67. bmw-m550i.jpg
+68. bmw-xm.jpg
+69. bmw-m8.jpg
+70. toyota-probox.jpg
+71. toyota-hilux.jpg
+72. nissan-nv200.jpg
+73. mazda-axela.jpg
+74. suzuki-alto.jpg
+75. toyota-fielder.jpg
+76. nissan-wingroad.jpg
+77. mitsubishi-rvr.jpg
+78. nissan-note.jpg
+79. honda-vezel.jpg
+80. toyota-noah.jpg
+81. nissan-serena.jpg
+82. mazda-atenza.jpg
+83. subaru-wrx.jpg
+84. toyota-harrier.jpg
+85. nissan-tiida.jpg
+86. mazda-cx-5.jpg
+87. honda-accord.jpg
+88. toyota-premio.jpg
+89. nissan-juke.jpg
+90. volkswagen-tiguan.jpg
+91. land-rover-discovery.jpg
+92. mercedes-benz-e-class.jpg
+93. audi-q5.jpg
+94. lexus-rx-350.jpg
+95. toyota-crown.jpg
+96. mitsubishi-pajero.jpg
+97. volkswagen-passat.jpg
+98. mazda-cx-3.jpg
+99. honda-hr-v.jpg
+100. range-rover-sport.jpg
+101. mazda-2.jpg
+102. mazda-3.jpg
+103. mazda-6.jpg
+104. mazda-premacy.jpg
+105. mazda-biante.jpg
+106. mazda-verisa.jpg
+107. mazda-cx-7.jpg
+108. mazda-cx-9.jpg
+109. mazda-cx-30.jpg
+110. mazda-mx-5-miata.jpg
+111. mazda-carol.jpg
+112. mazda-cx-8.jpg
+
+QUICK DOWNLOAD TIPS:
+====================
+- Use Unsplash.com, Pexels.com, or Pixabay.com (free)
+- Search for "[car brand] [model]" 
+- Download high-quality images (at least 400x300px)
+- Save as JPG for smaller file size
+- After downloading all images, the code will automatically use them
+
+TOTAL: 112 images to download

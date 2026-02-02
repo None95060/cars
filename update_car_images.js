@@ -24,10 +24,10 @@ async function updateCarImages() {
   const filePath = 'src/Dashboard.jsx';
   let content = fs.readFileSync(filePath, 'utf8');
 
-  // Extract the cars array (this is a simplified approach, assuming the array is in a specific format)
-  const carsMatch = content.match(/const cars = useMemo\(\(\) => \[\s*([\s\S]*?)\s*\], \[\]\)/);
+  // Extract the carsData array
+  const carsMatch = content.match(/const carsData = \[\s*([\s\S]*?)\s*\];/);
   if (!carsMatch) {
-    console.error('Could not find cars array in the file');
+    console.error('Could not find carsData array in the file');
     return;
   }
 
@@ -58,11 +58,11 @@ async function updateCarImages() {
     }
   }
 
-  // Reconstruct the cars array
+  // Reconstruct the carsData array
   const updatedCarsString = carObjects.join(',\n    ');
 
   // Replace in the content
-  const updatedContent = content.replace(carsMatch[0], `const cars = useMemo(() => [\n    ${updatedCarsString}\n  ], [])`);
+  const updatedContent = content.replace(carsMatch[0], `const carsData = [\n    ${updatedCarsString}\n  ];`);
 
   fs.writeFileSync(filePath, updatedContent, 'utf8');
   console.log('Car images updated successfully!');
