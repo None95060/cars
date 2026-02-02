@@ -9,14 +9,34 @@ import useLocalStorage from './hooks/useLocalStorage'
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useLocalStorage('isAuthenticated', false)
   const [currentView, setCurrentView] = useState('login') // 'login' or 'signup'
+  const [users, setUsers] = useLocalStorage('users', [])
+  const [loginError, setLoginError] = useState('')
 
   const handleLogin = (email, password) => {
-    // Simple demo login - in real app, validate credentials
+    // Check if user exists with matching credentials
+    const userExists = users.find(user => user.email === email && user.password === password)
+    
+    if (!userExists) {
+      setLoginError('Invalid email or password')
+      return
+    }
+    
+    setLoginError('')
     setIsAuthenticated(true)
   }
 
   const handleSignup = (email, password) => {
-    // Simple demo signup - in real app, create account
+    // Check if email already exists
+    const emailExists = users.find(user => user.email === email)
+    
+    if (emailExists) {
+      setLoginError('Email already registered')
+      return
+    }
+    
+    // Add new user to users list
+    setUsers([...users, { email, password }])
+    setLoginError('')
     setIsAuthenticated(true)
   }
 
@@ -30,9 +50,9 @@ function App() {
       return <ForgotPassword onBackToLogin={() => setCurrentView('login')} />
     }
     return currentView === 'login' ? (
-      <Login onLogin={handleLogin} onSwitchToSignup={() => setCurrentView('signup')} onForgotPassword={() => setCurrentView('forgot')} />
+      <Login onLogin={handleLogin} onSwitchToSignup={() => setCurrentView('signup')} onForgotPassword={() => setCurrentView('forgot')} loginError={loginError} />
     ) : (
-      <Signup onSignup={handleSignup} onSwitchToLogin={() => setCurrentView('login')} />
+      <Signup onSignup={handleSignup} onSwitchToLogin={() => setCurrentView('login')} signupError={loginError} />
     )
   }
 

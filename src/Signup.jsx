@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Auth.css';
 
-function Signup({ onSignup, onSwitchToLogin }) {
+function Signup({ onSignup, onSwitchToLogin, signupError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,7 +17,7 @@ function Signup({ onSignup, onSwitchToLogin }) {
       setError('Passwords do not match');
       return;
     }
-    // Simple demo signup - in real app, create account
+    setError('');
     onSignup(email, password);
   };
 
@@ -60,6 +60,7 @@ function Signup({ onSignup, onSwitchToLogin }) {
             />
           </div>
           {error && <p style={{color: '#ff6f00', textAlign: 'center', marginTop: '10px'}}>{error}</p>}
+          {signupError && <p style={{color: '#ff6f00', textAlign: 'center', marginTop: '10px'}}>{signupError}</p>}
           <button type="submit" className="auth-btn">Sign Up</button>
         </form>
         <button onClick={onSwitchToLogin} className="auth-link" style={{background: 'none', border: 'none', cursor: 'pointer'}}>

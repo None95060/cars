@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Auth.css';
 
-function Login({ onLogin, onSwitchToSignup, onForgotPassword }) {
+function Login({ onLogin, onSwitchToSignup, onForgotPassword, loginError }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -12,7 +12,7 @@ function Login({ onLogin, onSwitchToSignup, onForgotPassword }) {
       setError('Please fill in all fields');
       return;
     }
-    // Simple demo validation - in real app, validate against backend
+    setError('');
     onLogin(email, password);
   };
 
@@ -45,6 +45,7 @@ function Login({ onLogin, onSwitchToSignup, onForgotPassword }) {
             />
           </div>
           {error && <p style={{color: '#ff6f00', textAlign: 'center', marginTop: '10px'}}>{error}</p>}
+          {loginError && <p style={{color: '#ff6f00', textAlign: 'center', marginTop: '10px'}}>{loginError}</p>}
           <button type="submit" className="auth-btn">Log In</button>
         </form>
         <div style={{textAlign: 'center', marginTop: '10px'}}>
