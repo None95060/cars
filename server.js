@@ -78,6 +78,11 @@ app.post('/api/auth/login', (req, res) => {
   return res.status(200).json({ message: 'Login successful', user: { name: user.name, email: user.email } });
 });
 
+// Verify endpoint - checks if backend is running
+app.get('/api/auth/verify', (req, res) => {
+  return res.status(200).json({ message: 'Backend is running' });
+});
+
 app.listen(PORT, () => {
   console.log(`Auth server running on http://localhost:${PORT}`);
 });

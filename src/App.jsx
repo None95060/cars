@@ -19,6 +19,19 @@ function App() {
       setIsAuthenticated(false)
       setCurrentView('login')
     }
+    
+    // On production (Vercel), clear invalid auth state
+    if (isAuthenticated && typeof window !== 'undefined') {
+      fetch('http://localhost:5000/api/auth/verify', { method: 'GET' })
+        .catch(() => {
+          // If backend is not available, we're likely on production without backend
+          // Clear the invalid auth state
+          if (window.location.hostname !== 'localhost') {
+            setIsAuthenticated(false)
+            setCurrentView('login')
+          }
+        })
+    }
   }, [])
 
   const handleLogin = async (email, password) => {
