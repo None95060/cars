@@ -114,10 +114,19 @@ export const carImageMap = {
   'Mazda CX-8': 'mazda-cx-8.jpg',
 }
 
-export const getCarImagePath = (carName) => {
+const carImageModules = import.meta.glob('./assets/cars/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+  import: 'default'
+})
+
+const carImagesByFile = Object.fromEntries(
+  Object.entries(carImageModules).map(([path, url]) => [path.split('/').pop(), url])
+)
+
+export const getCarImagePath = (carName, fallback = null) => {
   const imageName = carImageMap[carName]
-  if (imageName) {
-    return `/src/assets/cars/${imageName}`
+  if (imageName && carImagesByFile[imageName]) {
+    return carImagesByFile[imageName]
   }
-  return '/src/assets/placeholder.jpg' // fallback image
+  return fallback
 }

@@ -209,11 +209,18 @@ function Dashboard({ onLogout }) {
     { id: 170, name: 'Audi RS6', price: 9850000, year: 2019, mileage: 0, brand: 'Audi', bodyType: 'Wagon', fuelType: 'Petrol', transmission: 'Automatic', location: 'Nairobi', image: 'https://images.pexels.com/photos/1040753/pexels-photo-1040753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', images: ['https://images.pexels.com/photos/1040753/pexels-photo-1040753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', 'https://images.pexels.com/photos/1040753/pexels-photo-1040753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', 'https://images.pexels.com/photos/1040753/pexels-photo-1040753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940', 'https://images.pexels.com/photos/1040753/pexels-photo-1040753.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'], seatingCapacity: 5, condition: 'Excellent', engineCondition: 'Excellent - 4.0L twin-turbo V8, performance wagon legend', seatMaterial: 'Leather Sport', seatType: 'RS executive', seatFeatures: ['Heated and ventilated seats', '12-way power-adjustable', 'Memory settings', 'Carbon interior'], doors: 5, color: 'Daytona Grey' }
   ];
 
-  const cars = useMemo(() => carsData.map(car => ({
-    ...car,
-    image: imageUrls[car.bodyType] || 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop',
-    images: Array(4).fill(imageUrls[car.bodyType] || 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop')
-  })), [])
+  const cars = useMemo(() => carsData.map((car) => {
+    const bodyTypeFallback = imageUrls[car.bodyType] || 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=400&h=300&fit=crop'
+    const localImage = getCarImagePath(car.name, null)
+    const primaryImage = localImage || car.image || bodyTypeFallback
+    const galleryImages = car.images?.length ? car.images : Array(4).fill(primaryImage)
+
+    return {
+      ...car,
+      image: primaryImage,
+      images: galleryImages
+    }
+  }), [])
 
   const carYards = useMemo(() => [
     {
